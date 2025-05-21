@@ -1,81 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instagram Lite</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fff;
-    }
-    .navbar {
-      background-color: #f8f8f8;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    }
-    .navbar img {
-      height: 30px;
-    }
-    .navbar a {
-      font-size: 18px;
-      text-decoration: none;
-      color: #333;
-    }
-    .content {
-      padding: 20px;
-      text-align: center;
-    }
-    .button {
-      background-color: #0095F6;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      display: inline-block;
-      margin: 10px;
-    }
-    .search-bar {
-      width: 80%;
-      padding: 10px;
-      margin-top: 20px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-  </style>
+  <meta charset="utf-8">
+  <title>Instagram-Lite</title>
+
+  <!-- Make it launch full-screen when saved to Home Screen -->
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <style>html,body{margin:0;padding:0;background:#fff;font-family:-apple-system,BlinkMacSystemFont,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;}a{color:#3897f0;text-decoration:none}</style>
 </head>
 <body>
-  <div class="navbar">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram logo">
-    <a href="javascript:void(0);" onclick="alert('No Home Feed!')">Home</a>
-  </div>
-  <div class="content">
-    <h1>Welcome to Instagram Lite!</h1>
-    <p>Focus on the essentials: Direct Messages, Stories, and Search.</p>
+  <!-- Fallback message (seen for <½ s) -->
+  <p>Opening Instagram … If nothing happens <a href="https://www.instagram.com/direct/inbox/">tap here</a>.</p>
 
-    <!-- Direct Messages -->
-    <a href="https://www.instagram.com/direct/inbox/" class="button">Go to Direct Messages</a>
-
-    <!-- Stories -->
-    <a href="https://www.instagram.com/stories/" class="button">View Stories</a>
-
-    <!-- Search Bar -->
-    <div>
-      <input type="text" class="search-bar" placeholder="Search Instagram" oninput="searchInstagram(this.value)">
-    </div>
-
-    <script>
-      function searchInstagram(query) {
-        if (query.length > 0) {
-          window.location.href = "https://www.instagram.com/explore/tags/" + query;
-        }
-      }
-    </script>
-  </div>
+  <script>
+    // Immediately jump to the DM inbox
+    location.replace('https://www.instagram.com/direct/inbox/');
+  </script>
 </body>
 </html>
